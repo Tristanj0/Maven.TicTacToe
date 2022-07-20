@@ -4,23 +4,44 @@ package rocks.zipcodewilmington.tictactoe;
  * @author leon on 6/22/18.
  */
 public class Board {
-    public Board(Character[][] matrix) {
-    }
+
+    public Character[][] matrix;
+    public Board (Character[][] matrix) {this.matrix = matrix;}
 
     public Boolean isInFavorOfX() {
-        return null;
+        if (matrix[0][0].equals('X') && matrix[0][1].equals('X') && matrix[0][2].equals('X')) return true;
+        else if (matrix[1][0].equals('X') && matrix[1][1].equals('X') && matrix[1][2].equals('X')) return true;
+        else if (matrix[2][0].equals('X') && matrix[2][1].equals('X') && matrix[2][2].equals('X')) return true;
+        else if (matrix[0][0].equals('X') && matrix[1][1].equals('X') && matrix[2][2].equals('X')) return true;
+        else if (matrix[2][0].equals('X') && matrix[1][1].equals('X') && matrix[0][2].equals('X')) return true;
+        else if (matrix[0][0].equals('X') && matrix[1][0].equals('X') && matrix[2][0].equals('X')) return true;
+        else if (matrix[0][1].equals('X') && matrix[1][1].equals('X') && matrix[2][1].equals('X')) return true;
+        else if (matrix[0][2].equals('X') && matrix[1][2].equals('X') && matrix[2][2].equals('X')) return true;
+        else return false;
     }
 
     public Boolean isInFavorOfO() {
-        return null;
+        if (matrix[0][0].equals('O') && matrix[0][1].equals('O') && matrix[0][2].equals('O')) return true;
+        else if (matrix[1][0].equals('O') && matrix[1][1].equals('O') && matrix[1][2].equals('O')) return true;
+        else if (matrix[2][0].equals('O') && matrix[2][1].equals('O') && matrix[2][2].equals('O')) return true;
+        else if (matrix[0][0].equals('O') && matrix[1][1].equals('O') && matrix[2][2].equals('O')) return true;
+        else if (matrix[2][0].equals('O') && matrix[1][1].equals('O') && matrix[0][2].equals('O')) return true;
+        else if (matrix[0][0].equals('O') && matrix[1][0].equals('O') && matrix[2][0].equals('O')) return true;
+        else if (matrix[0][1].equals('O') && matrix[1][1].equals('O') && matrix[2][1].equals('O')) return true;
+        else if (matrix[0][2].equals('O') && matrix[1][2].equals('O') && matrix[2][2].equals('O')) return true;
+        else return false;
     }
 
     public Boolean isTie() {
-        return null;
+        if (this.isInFavorOfO().equals(false) && this.isInFavorOfX().equals(false)) return true;
+        else return false;
     }
 
     public String getWinner() {
-        return null;
+        if (this.isInFavorOfX().equals(true) && this.isInFavorOfO().equals(false)) return "X";
+       else if (this.isInFavorOfX().equals(false) && this.isInFavorOfO().equals(true)) return "O";
+        else return "";
     }
+
 
 }
